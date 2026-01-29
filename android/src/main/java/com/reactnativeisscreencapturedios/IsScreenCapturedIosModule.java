@@ -10,25 +10,24 @@ import com.facebook.react.module.annotations.ReactModule;
 
 @ReactModule(name = IsScreenCapturedIosModule.NAME)
 public class IsScreenCapturedIosModule extends ReactContextBaseJavaModule {
-    public static final String NAME = "IsScreenCapturedIos";
+  public static final String NAME = "IsScreenCapturedIos";
 
-    public IsScreenCapturedIosModule(ReactApplicationContext reactContext) {
-        super(reactContext);
-    }
+  public IsScreenCapturedIosModule(ReactApplicationContext reactContext) {
+    super(reactContext);
+  }
 
-    @Override
-    @NonNull
-    public String getName() {
-        return NAME;
-    }
+  @Override
+  @NonNull
+  public String getName() {
+    return NAME;
+  }
 
+  // Example method
+  // See https://reactnative.dev/docs/native-modules-android
+  @ReactMethod
+  public void multiply(int a, int b, Promise promise) {
+    promise.resolve(a * b);
+  }
 
-    // Example method
-    // See https://reactnative.dev/docs/native-modules-android
-    @ReactMethod
-    public void multiply(int a, int b, Promise promise) {
-        promise.resolve(a * b);
-    }
-
-    public static native int nativeMultiply(int a, int b);
+  public static native int nativeMultiply(int a, int b);
 }
